@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Reação de Apoio</string>
+    <string name="force_text_wrong">Valor inválido para a força aplicada</string>
+    <string name="first_distance_text_wrong">Valor inválido para a primeira distância</string>
+    <string name="second_distance_text_wrong">Valor inválido para a segunda distância</string>
+    <string name="home_app_bar_title">Teoria das estruturas</string>
+    <string name="calculation_of_support_reactions">Cálculo das reações de apoio</string>
+    <string name="calculate_text_button">Calcular</string>
+    <string name="clear_results_text_button">Limpar resultados</string>
+    <string name="clear_results_dialog_title">Você tem certeza que quer limpar todos os textos?</string>
+    <string name="clear_results_dialog_text">Esta ação irá limpar todos os textos informados e a resposta das reações na tela do aplicativo.</string>
+    <string name="cancel">Cancelar</string>
+    <string name="download_report_result">Baixar Relatório</string>
+    <string name="error_when_try_download">Algo deu errado ao tentar baixar o relatório. Por favor feche o app e abre novamente.</string>
+    <string name="error_when_try_access_download">Algo deu errado ao tentar acessar os downloads.</string>
+    <string name="options">Opções</string>
+    <string name="infos" translatable="false">Informações</string>
+    <string name="back_to_previous_screen">Voltar para a tela anterior</string>
+    <string name="nothing_there">No momento não há nada aqui</string>
+    <string name="you_need_to_give_write_access_permissions">Você precisa dar permissões de escrita</string>
+</resources>

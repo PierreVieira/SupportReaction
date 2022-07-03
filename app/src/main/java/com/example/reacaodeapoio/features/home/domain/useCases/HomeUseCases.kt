@@ -7,5 +7,6 @@ data class HomeUseCases(
     val calculateForceReactionB: CalculateForceReactionB,
     val isValidText: IsValidFloatText,
     val resultFormatter: ResultFormatter,
-    val downloadReport: DownloadReport
+    val copyReportToClipBoard: CopyReportToClipBoard,
+    val replaceCommaForDot: ReplaceCommaForDot
 )

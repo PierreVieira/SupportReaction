@@ -11,8 +11,8 @@
     <string name="clear_results_dialog_text">This action will clear all the reported texts and the reaction response on the app screen.</string>
     <string name="ok" translatable="false">OK</string>
     <string name="cancel">Cancel</string>
-    <string name="download_report_result">Download Result Report</string>
-    <string name="error_when_try_download">Something went wrong trying to download the report, close the app and try again.</string>
+    <string name="download_report_result">Copy Result Report</string>
+    <string name="error_when_try_download">Something went wrong trying to copy the report, close the app and try again.</string>
     <string name="error_when_try_access_download">Something went wrong trying to access downloads.</string>
     <string name="options">Options</string>
     <string name="downloads" translatable="false">Downloads</string>
@@ -20,4 +20,5 @@
     <string name="back_to_previous_screen">Back to previous screen</string>
     <string name="nothing_there">At the moment there is nothing here</string>
     <string name="you_need_to_give_write_access_permissions">You need to give write access permissions</string>
+    <string name="result_copied_to_clipboard">Report copied to clipboard</string>
 </resources>

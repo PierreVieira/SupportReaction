@@ -1,15 +1,6 @@
 package com.example.reacaodeapoio.features.home.presentation
 
-import android.Manifest
-import android.content.Context
-import android.content.Intent
-import android.net.Uri
-import android.os.Build
-import android.os.Environment
-import android.provider.Settings
-import androidx.activity.compose.ManagedActivityResultLauncher
 import androidx.annotation.StringRes
-import androidx.core.content.ContextCompat.startActivity
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.reacaodeapoio.R
@@ -18,7 +9,6 @@ import com.example.reacaodeapoio.features.home.domain.useCases.HomeUseCases
 import com.example.reacaodeapoio.features.home.presentation.ui.HomeUiAction
 import com.example.reacaodeapoio.features.home.presentation.ui.HomeUiEvent
 import com.example.reacaodeapoio.features.home.presentation.ui.HomeUiState
-import com.example.reacaodeapoio.utils.permissionOk
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
@@ -52,13 +42,13 @@ class HomeViewModel @Inject constructor(
     fun dispatchUiEvent(event: HomeUiEvent) {
         when (event) {
             is HomeUiEvent.EnterWithForceText -> _uiState.update {
-                it.copy(forceText = event.forceText)
+                it.copy(forceText = replaceDotForComma(event.forceText))
             }
             is HomeUiEvent.EnterWithFirsDistanceText -> _uiState.update {
-                it.copy(firstDistanceText = event.firstDistanceText)
+                it.copy(firstDistanceText = replaceDotForComma(event.firstDistanceText))
             }
             is HomeUiEvent.EnterWithSecondDistanceText -> _uiState.update {
-                it.copy(secondDistanceText = event.secondDistanceText)
+                it.copy(secondDistanceText = replaceDotForComma(event.secondDistanceText))
             }
             is HomeUiEvent.CalculateButtonClick -> calculateButtonClick()
             is HomeUiEvent.ClearResultsButtonClick -> _uiState.update {
@@ -73,10 +63,7 @@ class HomeViewModel @Inject constructor(
                     _uiAction.emit(HomeUiAction.BackCursorToFirstField)
                 }
             }
-            is HomeUiEvent.DownloadReportResult -> downloadReportResult(
-                context = event.context,
-                launcher = event.launcher
-            )
+            is HomeUiEvent.CopyReportResult -> copyReportResult()
             is HomeUiEvent.DownloadsClick -> viewModelScope.launch {
                 hideMoreMenu()
                 _uiAction.emit(HomeUiAction.NavigateToDownloads)
@@ -96,31 +83,10 @@ class HomeViewModel @Inject constructor(
         _uiState.update { it.copy(isShowingMoreMenu = false) }
     }
 
-    private fun downloadReportResult(
-        context: Context,
-        launcher: ManagedActivityResultLauncher<String, Boolean>,
-    ) {
+    private fun copyReportResult() {
         resultCache?.let { resultModel ->
-            if (permissionOk(
-                    context = context,
-                    permission = Manifest.permission.WRITE_EXTERNAL_STORAGE
-                )
-            ) {
-                if (Build.VERSION.SDK_INT < Build.VERSION_CODES.R) {
-                    homeUseCases.downloadReport(resultModel)
-                } else if (
-                    Environment.isExternalStorageManager()
-                ) {
-                    homeUseCases.downloadReport(resultModel)
-                } else {
-                    val intent = Intent(Settings.ACTION_MANAGE_APP_ALL_FILES_ACCESS_PERMISSION)
-                    val uri = Uri.fromParts("package", context.packageName, null)
-                    intent.data = uri
-                    context.startActivity(intent)
-                }
-            } else {
-                launcher.launch(Manifest.permission.WRITE_EXTERNAL_STORAGE)
-            }
+            homeUseCases.copyReportToClipBoard(resultModel)
+            showToast(R.string.result_copied_to_clipboard)
         } ?: showToast(R.string.error_when_try_download)
     }
 
@@ -170,4 +136,6 @@ class HomeViewModel @Inject constructor(
             )
         }
     }
+
+    private fun replaceDotForComma(text: String) = homeUseCases.replaceCommaForDot(text)
 }

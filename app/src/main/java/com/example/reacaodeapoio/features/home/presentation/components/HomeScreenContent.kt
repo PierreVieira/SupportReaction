@@ -37,7 +37,7 @@ fun HomeScreenContent(
     onClearResultsClick: () -> Unit,
     onConfirmClearResults: () -> Unit,
     onDismissConfirmClearResultsDialog: () -> Unit,
-    onDownloadReportClick: () -> Unit,
+    onCopyReportClick: () -> Unit,
     onMoreVertClick: () -> Unit,
     onDismissMenuOptions: () -> Unit,
     onDownloadsClick: () -> Unit,
@@ -150,7 +150,7 @@ fun HomeScreenContent(
                             VerticalSpacer()
                             Button(
                                 modifier = Modifier.fillMaxWidth(),
-                                onClick = onDownloadReportClick
+                                onClick = onCopyReportClick
                             ) {
                                 Text(text = stringResource(id = R.string.download_report_result))
                             }

@@ -1,4 +1,4 @@
-package com.example.reacaodeapoio.features.home.presentation.components
+package com.example.reacaodeapoio.features.home.presentation.screen.content.components
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
@@ -11,12 +11,13 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.reacaodeapoio.R
-import com.example.reacaodeapoio.ui.components.GrayDivider
+import com.example.reacaodeapoio.ui.theme.SupportReactionTheme
 
 @Composable
-fun HomeOptionsDropdownMenu(
+fun HomeOptionsDropdownMenuComponent(
     expanded: Boolean,
     onDismiss: () -> Unit,
     onDownloadsClick: () -> Unit,
@@ -38,7 +39,7 @@ fun HomeOptionsDropdownMenu(
             },
             onClick = onDownloadsClick
         )
-        GrayDivider(modifier = Modifier.padding(horizontal = 12.dp))
+        GrayDividerComponent(modifier = Modifier.padding(horizontal = 12.dp))
         DropdownMenuItem(
             text = {
                 Text(text = stringResource(id = R.string.infos))
@@ -46,4 +47,15 @@ fun HomeOptionsDropdownMenu(
             onClick = onMoreInfoClick
         )
     }
+}
+
+@Composable
+@Preview
+fun HomeOptionsDropdownMenuComponentPreview() = SupportReactionTheme {
+    HomeOptionsDropdownMenuComponent(
+        expanded = true,
+        onDismiss = {},
+        onDownloadsClick = {},
+        onMoreInfoClick = {}
+    )
 }

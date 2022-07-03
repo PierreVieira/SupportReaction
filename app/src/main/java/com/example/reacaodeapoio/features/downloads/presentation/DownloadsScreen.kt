@@ -36,11 +36,6 @@ fun DownloadsScreen(
             }
         }
     }
-    viewModel.dispatchUiEvent(
-        DownloadsUiEvent.Init(
-            context = LocalContext.current,
-        )
-    )
     val uiState by viewModel.uiState.collectAsState()
     Scaffold(
         topBar = {

@@ -1,18 +1,16 @@
-package com.example.reacaodeapoio.features.home.presentation
+package com.example.reacaodeapoio.features.home.presentation.screen
 
-import android.content.Context
-import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.compose.runtime.*
 import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.focus.FocusRequester
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.reacaodeapoio.features.destinations.DownloadsScreenDestination
 import com.example.reacaodeapoio.features.destinations.MoreInfoScreenDestination
-import com.example.reacaodeapoio.features.home.presentation.components.HomeScreenContent
+import com.example.reacaodeapoio.features.home.presentation.HomeViewModel
+import com.example.reacaodeapoio.features.home.presentation.screen.content.HomeScreenContent
 import com.example.reacaodeapoio.features.home.presentation.ui.HomeUiAction
 import com.example.reacaodeapoio.features.home.presentation.ui.HomeUiEvent
 import com.ramcosta.composedestinations.annotation.Destination
@@ -54,14 +52,14 @@ fun HomeScreen(
     HomeScreenContent(
         uiState = uiState,
         focusRequester = focusRequester,
-        onForceChange = {
-            viewModel.dispatchUiEvent(HomeUiEvent.EnterWithForceText(it))
+        onForceChange = { force ->
+            viewModel.dispatchUiEvent(HomeUiEvent.EnterWithForceText(force))
         },
-        onFirstDistanceChange = {
-            viewModel.dispatchUiEvent(HomeUiEvent.EnterWithFirsDistanceText(it))
+        onFirstDistanceChange = { firstDistance ->
+            viewModel.dispatchUiEvent(HomeUiEvent.EnterWithFirsDistanceText(firstDistance))
         },
-        onSecondDistanceChange = {
-            viewModel.dispatchUiEvent(HomeUiEvent.EnterWithSecondDistanceText(it))
+        onSecondDistanceChange = { secondDistance ->
+            viewModel.dispatchUiEvent(HomeUiEvent.EnterWithSecondDistanceText(secondDistance))
         },
         onCalculateClick = {
             viewModel.dispatchUiEvent(HomeUiEvent.CalculateButtonClick)

@@ -21,4 +21,7 @@
     <string name="nothing_there">At the moment there is nothing here</string>
     <string name="you_need_to_give_write_access_permissions">You need to give write access permissions</string>
     <string name="result_copied_to_clipboard">Report copied to clipboard</string>
+    <string name="input_force_label" translatable="false">F (n)</string>
+    <string name="input_first_distance_label" translatable="false">L1 (m)</string>
+    <string name="input_second_distance_label" translatable="false">L2 (m)</string>
 </resources>

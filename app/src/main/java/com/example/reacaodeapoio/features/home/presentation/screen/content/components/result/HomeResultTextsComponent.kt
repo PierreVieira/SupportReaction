@@ -1,27 +1,29 @@
-package com.example.reacaodeapoio.features.home.presentation.components
+package com.example.reacaodeapoio.features.home.presentation.screen.content.components.result
 
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.*
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import com.example.reacaodeapoio.ui.components.spacers.HorizontalSpacer
+import com.example.reacaodeapoio.ui.theme.SupportReactionTheme
 
 @Composable
-fun HomeResultTexts(
+fun HomeResultTextsComponent(
     reactionA: String,
     reactionB: String,
     modifier: Modifier = Modifier,
-) = Row(modifier = modifier.fillMaxSize()) {
+) = Row(modifier = modifier.fillMaxWidth()) {
     ResultTextField(
-        modifier = Modifier.fillMaxSize(0.45f),
+        modifier = Modifier.fillMaxWidth(0.45f),
         value = reactionA,
         label = "RA"
     )
     HorizontalSpacer()
     ResultTextField(
-        modifier = Modifier.fillMaxSize(),
+        modifier = Modifier.fillMaxWidth(),
         value = reactionB,
         label = "RB"
     )
@@ -41,5 +43,14 @@ private fun ResultTextField(
         label = {
             Text(text = label)
         }
+    )
+}
+
+@Composable
+@Preview(showBackground = true)
+fun HomeResultTextsComponentPreview() = SupportReactionTheme {
+    HomeResultTextsComponent(
+        reactionA = "1.512 Newtons",
+        reactionB = "2.38 Newtons"
     )
 }

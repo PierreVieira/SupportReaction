@@ -1,4 +1,4 @@
-package com.example.reacaodeapoio.features.home.presentation.components
+package com.example.reacaodeapoio.features.home.presentation.screen.content
 
 import androidx.compose.animation.AnimatedContent
 import androidx.compose.animation.ExperimentalAnimationApi
@@ -18,12 +18,18 @@ import androidx.compose.ui.focus.FocusRequester
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.reacaodeapoio.R
+import com.example.reacaodeapoio.features.home.presentation.screen.content.components.ConfirmClearDialogComponent
+import com.example.reacaodeapoio.features.home.presentation.screen.content.components.editText.HomeEditTextsComponent
+import com.example.reacaodeapoio.features.home.presentation.screen.content.components.HomeOptionsDropdownMenuComponent
 import com.example.reacaodeapoio.features.home.presentation.ui.HomeUiState
-import com.example.reacaodeapoio.ui.components.GrayDivider
+import com.example.reacaodeapoio.features.home.presentation.screen.content.components.GrayDividerComponent
+import com.example.reacaodeapoio.features.home.presentation.screen.content.components.result.ForceReactionResultsComponent
 import com.example.reacaodeapoio.ui.components.TopAppBar
 import com.example.reacaodeapoio.ui.components.spacers.VerticalSpacer
+import com.example.reacaodeapoio.ui.theme.SupportReactionTheme
 
 @OptIn(ExperimentalMaterial3Api::class, ExperimentalAnimationApi::class)
 @Composable
@@ -44,7 +50,7 @@ fun HomeScreenContent(
     onMoreInfoClick: () -> Unit,
 ) {
     if (uiState.isShowingClearResultsDialog) {
-        ConfirmClearDialog(
+        ConfirmClearDialogComponent(
             onConfirm = onConfirmClearResults,
             onDismissRequest = onDismissConfirmClearResultsDialog
         )
@@ -65,7 +71,7 @@ fun HomeScreenContent(
             )
         },
     ) { paddingValues ->
-        HomeOptionsDropdownMenu(
+        HomeOptionsDropdownMenuComponent(
             expanded = uiState.isShowingMoreMenu,
             onDismiss = onDismissMenuOptions,
             onDownloadsClick = onDownloadsClick,
@@ -92,10 +98,12 @@ fun HomeScreenContent(
             item {
                 AnimatedContent(targetState = uiState.isShowingForceReactions) { showingResult ->
                     if (showingResult.not()) {
-                        Column(modifier = Modifier.fillMaxWidth(),
-                            horizontalAlignment = Alignment.CenterHorizontally) {
+                        Column(
+                            modifier = Modifier.fillMaxWidth(),
+                            horizontalAlignment = Alignment.CenterHorizontally
+                        ) {
                             VerticalSpacer(8.dp)
-                            GrayDivider()
+                            GrayDividerComponent()
                             VerticalSpacer()
                             Image(
                                 painter = painterResource(
@@ -111,13 +119,13 @@ fun HomeScreenContent(
                 VerticalSpacer(8.dp)
             }
             item {
-                GrayDivider()
+                GrayDividerComponent()
             }
             item {
                 VerticalSpacer()
             }
             item {
-                HomeEditTexts(
+                HomeEditTextsComponent(
                     uiState = uiState,
                     onForceChange = onForceChange,
                     onFirstDistanceChange = onFirstDistanceChange,
@@ -143,29 +151,46 @@ fun HomeScreenContent(
                 AnimatedContent(uiState.isShowingForceReactions) { canShow ->
                     Column(modifier = Modifier.fillMaxWidth()) {
                         if (canShow) {
-                            HomeResultTexts(
+                            ForceReactionResultsComponent(
                                 reactionA = uiState.reactionA,
-                                reactionB = uiState.reactionB
+                                reactionB = uiState.reactionB,
+                                onCopyReportClick = onCopyReportClick,
+                                onClearResultsClick = onClearResultsClick
                             )
-                            VerticalSpacer()
-                            Button(
-                                modifier = Modifier.fillMaxWidth(),
-                                onClick = onCopyReportClick
-                            ) {
-                                Text(text = stringResource(id = R.string.download_report_result))
-                            }
-                            VerticalSpacer(12.dp)
-                            Button(
-                                modifier = Modifier.fillMaxWidth(),
-                                onClick = onClearResultsClick,
-                                colors = ButtonDefaults.buttonColors()
-                            ) {
-                                Text(text = stringResource(id = R.string.clear_results_text_button))
-                            }
                         }
                     }
                 }
             }
         }
     }
+}
+
+@Composable
+@Preview
+private fun HomeScreenContentPreview() = SupportReactionTheme {
+    HomeScreenContent(
+        uiState = HomeUiState(
+            forceText = "",
+            firstDistanceText = "",
+            secondDistanceText = "",
+            reactionA = "",
+            reactionB = "",
+            isShowingForceReactions = false,
+            isShowingClearResultsDialog = false,
+            isShowingMoreMenu = false
+        ),
+        focusRequester = FocusRequester(),
+        onForceChange = {},
+        onFirstDistanceChange = {},
+        onSecondDistanceChange = {},
+        onCalculateClick = {},
+        onClearResultsClick = {},
+        onConfirmClearResults = {},
+        onDismissConfirmClearResultsDialog = {},
+        onCopyReportClick = {},
+        onMoreVertClick = {},
+        onDismissMenuOptions = {},
+        onDownloadsClick = {},
+        onMoreInfoClick = {}
+    )
 }

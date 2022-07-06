@@ -7,6 +7,10 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.reacaodeapoio.ui.theme.SupportReactionTheme
 
+/**
+ * Componente responsável por desenhar uma linha divisória cinza
+ * @param modifier utilizado para modificações externas de layout
+ * */
 @Composable
 fun GrayDividerComponent(modifier: Modifier = Modifier) = Divider(
     modifier = modifier,

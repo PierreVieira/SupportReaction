@@ -14,7 +14,10 @@ import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-
+/**
+ * View Model responsável por fazer o controle lógico da home (primeira tela)
+ * @param homeUseCases contém todos os casos de uso da home
+ * */
 @HiltViewModel
 class HomeViewModel @Inject constructor(
     private val homeUseCases: HomeUseCases,

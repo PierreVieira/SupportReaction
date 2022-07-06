@@ -13,6 +13,12 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.example.reacaodeapoio.R
 import com.example.reacaodeapoio.ui.theme.SupportReactionTheme
 
+/**
+ * Essa função implementa a barra que aparece no topo do aplicativo
+ * @param textId id do texto que ficará no título da barra
+ * @param actions função compose que contém os ícones em formato de linha dos ícones que indicam algum tipo de ação, por padrão é vazio
+ * @param navigateBackAction função que irá indicar o que fazer caso o usuário clique no ícone de navegação, se esse parâmetro for nulo, o ícone de navegação não será mostrado, por padrão é [null]
+ * */
 @Composable
 fun TopAppBar(
     @StringRes textId: Int,

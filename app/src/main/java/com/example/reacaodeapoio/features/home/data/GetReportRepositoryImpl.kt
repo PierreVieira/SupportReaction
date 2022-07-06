@@ -5,10 +5,13 @@ import com.example.reacaodeapoio.features.home.domain.model.ResultModel
 import com.example.reacaodeapoio.features.home.domain.useCases.cases.ResultFormatter
 import javax.inject.Inject
 
+/**
+ * Classe que implementa a interface que fornece os dados do relatório copiado
+ * @param resultFormatter lógica para formatar os números informados pelo usuário */
 class GetReportRepositoryImpl @Inject constructor(
     private val resultFormatter: ResultFormatter,
 ) : HomeRepository {
-    override fun getFileOutputText(
+    override fun getCopyOutputText(
         resultModel: ResultModel,
     ): String = with(resultModel) {
         val totalDistance =

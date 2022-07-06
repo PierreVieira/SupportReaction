@@ -19,6 +19,13 @@ import com.example.reacaodeapoio.features.home.presentation.ui.HomeUiState
 import com.example.reacaodeapoio.ui.components.spacers.HorizontalSpacer
 import com.example.reacaodeapoio.ui.theme.SupportReactionTheme
 
+/**
+ * Componente responsável por desenhar as caixas de texto da home que o usuário informa os valores
+ * @param focusRequester controla o estado do teclado (fazendo sumir e aparecer)
+ * @param uiState guarda o estado atual da tela
+ * @param onForceChange função que informa o que irá acontecer quando o usuário mudar o valor de F (força)
+ * @param onFirstDistanceChange função que informa o que irá acontecer quando o usuário mudar o valor de L1 (primeira distância)
+ * @param onSecondDistanceChange função que informa o que irá acontecer quando o usuário mudar o valor de L2 (segunda distância) */
 @Composable
 fun HomeEditTextsComponent(
     focusRequester: FocusRequester,

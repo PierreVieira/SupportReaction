@@ -18,6 +18,11 @@ import com.ramcosta.composedestinations.annotation.Destination
 import com.ramcosta.composedestinations.navigation.DestinationsNavigator
 import kotlinx.coroutines.flow.collectLatest
 
+/**
+ * Função compose responsável por desenhar a tela de "Mais Informações"
+ * @param navigator responsável por gerenciar a navegação entre telas
+ * @param viewModel responsável por fazer o controle lógico da tela
+ * */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 @Destination

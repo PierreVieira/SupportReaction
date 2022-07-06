@@ -10,6 +10,11 @@ import androidx.compose.ui.unit.dp
 import com.example.reacaodeapoio.ui.components.spacers.HorizontalSpacer
 import com.example.reacaodeapoio.ui.theme.SupportReactionTheme
 
+/**
+ * Função compose responsável por desenhar o componente das caixas de texto do resultado RA e RB
+ * @param reactionA valor calculado em RA
+ * @param reactionB valor calculado em RB
+ * @param modifier utilizado para modificações externas de layout */
 @Composable
 fun HomeResultTextsComponent(
     reactionA: String,
@@ -29,22 +34,24 @@ fun HomeResultTextsComponent(
     )
 }
 
+/**
+ * Componente responsável por chamar uma caixa de texto genérica que não pode ser editada
+ * @param label parâmetro que indica qual será a label da caixa de texto
+ * @param value parâmetro que indica qual será o valor da caixa de texto*/
 @Composable
 private fun ResultTextField(
     label: String,
     value: String,
     modifier: Modifier = Modifier,
-) {
-    OutlinedTextField(
-        modifier = modifier,
-        value = value,
-        onValueChange = {},
-        readOnly = true,
-        label = {
-            Text(text = label)
-        }
-    )
-}
+) = OutlinedTextField(
+    modifier = modifier,
+    value = value,
+    onValueChange = {},
+    readOnly = true,
+    label = {
+        Text(text = label)
+    }
+)
 
 @Composable
 @Preview(showBackground = true)

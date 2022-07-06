@@ -2,6 +2,9 @@ package com.example.reacaodeapoio.features.home.domain.useCases.cases
 
 import javax.inject.Inject
 
+/**
+ * Contém lógica para formatar os números informados pelo usuário
+ * @param replaceCommaForDot lógica para trocar toda vírgula por ponto */
 class ResultFormatter @Inject constructor(
     private val replaceCommaForDot: ReplaceCommaForDot
 ) {

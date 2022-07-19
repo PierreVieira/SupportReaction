@@ -13,6 +13,12 @@ import com.example.reacaodeapoio.R
 import com.example.reacaodeapoio.ui.components.spacers.VerticalSpacer
 import com.example.reacaodeapoio.ui.theme.SupportReactionTheme
 
+/**
+ * Componente que vai desenhar toda a parte de resultado com os botões
+ * @param reactionA valor da reação em A
+ * @param reactionB valor da reação em B
+ * @param onCopyReportClick ação a ser executada quando o usuário clicar no botão de "copiar resultados"
+ * @param onClearResultsClick ação a ser executada quando o usuário clicar no botão de "limpar resultados" */
 @Composable
 fun ForceReactionResultsComponent(
     reactionA: String,

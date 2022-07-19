@@ -1,5 +1,8 @@
 package com.example.reacaodeapoio.features.home.presentation.ui
 
+/**
+ * Interface selada para descrever eventos de interface da primeira tela
+ * */
 sealed interface HomeUiEvent {
     data class EnterWithForceText(val forceText: String) : HomeUiEvent
     data class EnterWithFirsDistanceText(val firstDistanceText: String) : HomeUiEvent

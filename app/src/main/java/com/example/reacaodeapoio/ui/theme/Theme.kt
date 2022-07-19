@@ -19,18 +19,25 @@ private val DarkColorScheme = darkColorScheme(
     primary = Purple80,
     secondary = PurpleGrey80,
     tertiary = Pink80
-)
+) // Cores do tema Dark
 
 private val LightColorScheme = lightColorScheme(
     primary = Purple40,
     secondary = PurpleGrey40,
     tertiary = Pink40
-)
+) // Cores do tema light
 
+
+/**
+ * Essa função implementa o tema do app
+ * @param darkTheme valor booleano que indica se o device está em dark theme
+ * @param dynamicColor indica se podemos usar o recurso de cores dinâmicas caso estejamos em um Android 12+, por padrão é [true]
+ * @param content função compose que será o conteúdo do tema em sí
+ * */
 @Composable
 fun SupportReactionTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
-    // Dynamic color is available on Android 12+
+    // Cores dinâmicas só estão disponíveis no Android 12+
     dynamicColor: Boolean = true,
     content: @Composable () -> Unit
 ) {

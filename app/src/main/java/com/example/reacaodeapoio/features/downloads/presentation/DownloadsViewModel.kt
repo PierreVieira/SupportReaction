@@ -10,6 +10,9 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
+/**
+ * View Model responsável por fazer o controle lógico da tela de downloads
+ * */
 @HiltViewModel
 class DownloadsViewModel @Inject constructor() : ViewModel() {
     private val _uiState = MutableStateFlow<DownloadsUiState>(DownloadsUiState.Loading)

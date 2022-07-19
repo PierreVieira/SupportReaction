@@ -17,6 +17,9 @@ import com.ramcosta.composedestinations.annotation.Destination
 import com.ramcosta.composedestinations.navigation.DestinationsNavigator
 import kotlinx.coroutines.flow.collectLatest
 
+/**
+ * Função compose responsável por desenhar a primeira tela
+ * */
 @OptIn(ExperimentalComposeUiApi::class)
 @Composable
 @Destination(start = true)

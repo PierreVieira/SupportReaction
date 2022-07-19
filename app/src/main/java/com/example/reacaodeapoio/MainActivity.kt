@@ -12,9 +12,9 @@ import dagger.hilt.android.AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContent { // Inicializa o conteúdo
-            SupportReactionTheme { // Inicializa o tema do app
-                DestinationsNavHost(navGraph = NavGraphs.root) // Configura a navegação entre as telas
+        setContent { // Extensão da activity que faz com que ela chame funções composable
+            SupportReactionTheme { // Chamada do tema do app (cores, fontes e espaçamentos)
+                DestinationsNavHost(navGraph = NavGraphs.root) // Configuração da navegação entre telas do app
             }
         }
     }

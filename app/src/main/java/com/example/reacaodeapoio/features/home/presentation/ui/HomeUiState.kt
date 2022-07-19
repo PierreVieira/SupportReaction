@@ -1,5 +1,8 @@
 package com.example.reacaodeapoio.features.home.presentation.ui
 
+/**
+ * Classe responsável por armazenar o estado dos componentes da home
+ * */
 data class HomeUiState(
     val forceText: String,
     val firstDistanceText: String,

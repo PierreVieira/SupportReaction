@@ -31,6 +31,22 @@ import com.example.reacaodeapoio.ui.components.TopAppBar
 import com.example.reacaodeapoio.ui.components.spacers.VerticalSpacer
 import com.example.reacaodeapoio.ui.theme.SupportReactionTheme
 
+/**
+ * Essa função implementa o conteúdo da tela principal do app
+ * @param uiState guarda o estado atual da tela
+ * @param focusRequester controla o estado do teclado (fazendo sumir e aparecer)
+ * @param onForceChange função que informa o que irá acontecer quando o usuário mudar o valor de F (força)
+ * @param onFirstDistanceChange função que informa o que irá acontecer quando o usuário mudar o valor de L1 (primeira distância)
+ * @param onSecondDistanceChange função que informa o que irá acontecer quando o usuário mudar o valor de L2 (segunda distância)
+ * @param onCalculateClick função que informa o que riá acontecer quando o usuário clicar no botão de calcular
+ * @param onClearResultsClick função que informa o que irá acontecer quando o usuário clicar no botão de limpar os resultados na tela
+ * @param onConfirmClearResults função que informa o que irá acontecer quando o usuário confirmar que quer limpar os resultados
+ * @param onDismissConfirmClearResultsDialog função que informa o que irá acontecer qunado o usuário clicar fora do dialog de confirmação de limpeza de resultado
+ * @param onCopyReportClick função que informa o que irá acontecer quando o usuário clicar no botão de copiar o relatório
+ * @param onMoreVertClick função que informa o que irá acontecer quando o usuário clicar no ícone de 3 pontinhos verticais na app bar
+ * @param onDownloadsClick função que informa o que irá acontecer qunado o usuário clicar na opção de "Downloads" do menu que abre ao clicar nas 3 bolinhas verticais da app bar
+ * @param onMoreInfoClick função que informa o que irá acontecer quando o usuário clicar na opção de "Informações" do menu que abre ao clicar nas 3 bolinhas verticais da app bar*/
+
 @OptIn(ExperimentalMaterial3Api::class, ExperimentalAnimationApi::class)
 @Composable
 fun HomeScreenContent(

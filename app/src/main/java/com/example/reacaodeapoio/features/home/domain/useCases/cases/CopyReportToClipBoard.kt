@@ -20,9 +20,9 @@ class CopyReportToClipBoard @Inject constructor(
 ) {
 
     operator fun invoke(resultModel: ResultModel) {
-        val textOutput = homeRepository.getFileOutputText(resultModel)
-        val clipboard = context.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
-        val clipData = ClipData.newPlainText(context.getString(R.string.app_name), textOutput)
-        clipboard.setPrimaryClip(clipData)
+        val textOutput = homeRepository.getFileOutputText(resultModel) // Pega o texto do relatório informando o resultado encontrado
+        val clipboard = context.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager // Acessa o teclado do usuário
+        val clipData = ClipData.newPlainText(context.getString(R.string.app_name), textOutput) // Acessa o conteúdo do teclado do usuário
+        clipboard.setPrimaryClip(clipData) // Coloca no "paste" o conteúdo do relatório
     }
 }

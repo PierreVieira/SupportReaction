@@ -7,5 +7,5 @@ class CalculateForceReactionA @Inject constructor() {
         forceValue: Float,
         firstDistanceValue: Float,
         secondDistanceValue: Float,
-    ): Float = (forceValue * firstDistanceValue) / (firstDistanceValue + secondDistanceValue)
+    ): Float = (forceValue * firstDistanceValue) / (firstDistanceValue + secondDistanceValue) // Ra = (F * L1) / (L1 + L2)
 }

@@ -6,5 +6,5 @@ class CalculateForceReactionB @Inject constructor() {
     operator fun invoke(
         forceValue: Float,
         forceReactionAValue: Float
-    ) = forceValue - forceReactionAValue
+    ) = forceValue - forceReactionAValue // Rb = F - Ra
 }
